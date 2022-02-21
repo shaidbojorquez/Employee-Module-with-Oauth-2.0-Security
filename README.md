@@ -60,5 +60,5 @@ Username: carlos.reyes@theksquaregroup.com, Password: admin, ROLE_ADMIN
 ###### PATCH: /api/benefits/{id} (Disable a benefit)
 
 ##### Role: ADMIN, MANAGER, USER
-###### GET: /api/employees/user-info/{username}
-###### GET: /api/benefits/user-benefits/{username}
+###### GET: /api/employees/user-info
+###### GET: /api/benefits/user-benefits
