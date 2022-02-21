@@ -1,0 +1,36 @@
+
+To create an employee
+uniqueKey must be unique
+
+{
+    "name": "Shaid",
+    "lastName": "Bojorquez",
+    "dateOfBirth": "1997-02-02",
+    "email": "shaid.int@gmail.com",
+    "telephoneNumber": "9999999999",
+    "hiringDate": "2021-02-02",
+    "workEmail": "shaid.bojorquez@theksqauregroup.com",
+    "active": true,
+    "position": "ENGINEER1",
+    "gender": "MALE",
+    "typeOfElement": "INTERNAL",
+    "uniqueKey": "XUPA990819MQRLTN06",
+    "benefits": [],
+    "addressRequest": {
+        "country": "Mexico",
+        "city": "Merida",
+        "state": "Yucatan",
+        "street": "Calle 86c #934 por 200 y 217A  opichen",
+        "zipCode": "97356"
+    }
+}
+
+To create a benefit
+Name must be unique
+
+{
+    "name": "Vacations",
+    "description": "Employee vacations",
+    "availability": true,
+    "byLaw": true
+}

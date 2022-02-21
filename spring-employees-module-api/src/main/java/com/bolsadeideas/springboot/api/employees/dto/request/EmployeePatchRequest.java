@@ -1,0 +1,212 @@
+package com.bolsadeideas.springboot.api.employees.dto.request;
+
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.bolsadeideas.springboot.api.employees.enums.Gender;
+import com.bolsadeideas.springboot.api.employees.enums.Position;
+import com.bolsadeideas.springboot.api.employees.enums.TypeOfElement;
+
+public class EmployeePatchRequest {
+
+	@Size(min = 1, max = 40, message = "Name must be between 1 and 40 characters")
+	@Pattern(regexp = "[a-zA-Z]+\\.?", message = "Name must contain only letters")
+	private String name;
+
+	@Size(min = 1, max = 40, message = "Last name must be between 1 and 40 characters")
+	@Pattern(regexp = "[a-zA-Z]+\\.?", message = "Lastname must contain only letters")
+	private String lastName;
+
+	@Past
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dateOfBirth;
+	
+	@Email(message = "Email should be valid")
+    private String email;
+	
+	@Pattern(regexp = "^(\\d{3}[-]?){2}\\d{4}$", message = "phoneNumber must have the format ddd-ddd-dddd")
+	private String telephoneNumber;
+	
+	@Past
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate hiringDate;
+	
+	@Email(message = "Email should be valid")
+    private String workEmail;
+	
+	private Boolean active;
+	
+	@Enumerated(EnumType.STRING)
+	private Position position;
+	
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
+	
+	@Enumerated(EnumType.STRING)
+	private TypeOfElement typeOfElement;
+	
+	@Size(min = 1, max = 18, message = "Unique key must be between 1 and 18 characters")
+	@Pattern(regexp = "[A-Za-z0-9]+$", message = "Unique key must contain only letters and numbers")
+	private String uniqueKey;
+	
+	private Set<Long> benefits = new HashSet<>();
+
+	@Valid
+	private AddressPatchRequest address;
+
+	public EmployeePatchRequest() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public EmployeePatchRequest(
+			@Size(min = 1, max = 40, message = "Name must be between 1 and 40 characters") @Pattern(regexp = "[a-zA-Z]+\\.?", message = "Name must contain only letters") String name,
+			@Size(min = 1, max = 40, message = "Last name must be between 1 and 40 characters") @Pattern(regexp = "[a-zA-Z]+\\.?", message = "Lastname must contain only letters") String lastName,
+			@Past LocalDate dateOfBirth, @Email(message = "Email should be valid") String email,
+			@Pattern(regexp = "^(\\d{3}[-]?){2}\\d{4}$", message = "phoneNumber must have the format ddd-ddd-dddd") String telephoneNumber,
+			@Past LocalDate hiringDate, @Email(message = "Email should be valid") String workEmail, Boolean active,
+			Position position, Gender gender, TypeOfElement typeOfElement,
+			@Size(min = 1, max = 18, message = "Unique key must be between 1 and 18 characters") @Pattern(regexp = "[A-Za-z0-9]+$", message = "Unique key must contain only letters and numbers") String uniqueKey,
+			Set<Long> benefits, @Valid AddressPatchRequest address) {
+		super();
+		this.name = name;
+		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.email = email;
+		this.telephoneNumber = telephoneNumber;
+		this.hiringDate = hiringDate;
+		this.workEmail = workEmail;
+		this.active = active;
+		this.position = position;
+		this.gender = gender;
+		this.typeOfElement = typeOfElement;
+		this.uniqueKey = uniqueKey;
+		this.benefits = benefits;
+		this.address = address;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTelephoneNumber() {
+		return telephoneNumber;
+	}
+
+	public void setTelephoneNumber(String telephoneNumber) {
+		this.telephoneNumber = telephoneNumber;
+	}
+
+	public LocalDate getHiringDate() {
+		return hiringDate;
+	}
+
+	public void setHiringDate(LocalDate hiringDate) {
+		this.hiringDate = hiringDate;
+	}
+
+	public String getWorkEmail() {
+		return workEmail;
+	}
+
+	public void setWorkEmail(String workEmail) {
+		this.workEmail = workEmail;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
+	public TypeOfElement getTypeOfElement() {
+		return typeOfElement;
+	}
+
+	public void setTypeOfElement(TypeOfElement typeOfElement) {
+		this.typeOfElement = typeOfElement;
+	}
+
+	public Set<Long> getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(Set<Long> benefits) {
+		this.benefits = benefits;
+	}
+
+	public AddressPatchRequest getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressPatchRequest address) {
+		this.address = address;
+	}
+
+	public String getUniqueKey() {
+		return uniqueKey;
+	}
+
+	public void setUniqueKey(String uniqueKey) {
+		this.uniqueKey = uniqueKey;
+	}
+	
+
+}
